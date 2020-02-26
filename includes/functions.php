@@ -6,9 +6,9 @@
 
         $username = $_POST["username"];
 
-        echo $username;
-        
-        $getUser = 'SELECT * FROM users';
+        //echo $username;
+
+        $getUser = 'SELECT * FROM users where uname="'.$username.'"';
         $runQuery = $conn->query($getUser);
 
         $result = array();

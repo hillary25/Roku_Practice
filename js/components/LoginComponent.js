@@ -56,7 +56,20 @@ export default {
                     body: formData
                 })
                 .then(res => res.json())
-                .then(data => console.log(data))
+                .then(data => {
+                    console.log(data);
+
+                    // Tell the app that we have a successful login and store the user object that we retrieved
+
+                    // True below means that authentication worked
+                    // Data is the user we retrieved from the database
+                    this.$emit("authenticated", true, data[0]);
+
+                    // Push the user to the users page
+                    // This is like a redirect
+                    this.$router.replace({name: "users"});
+                    
+                })
                 .catch((err) => console.log(err));
 
 
